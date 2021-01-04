@@ -1,0 +1,2 @@
+<a mat-button [routerLink]="[baseLink +'/create']">New</a> 
+<app-component-summary-list *ngIf="summaries$ | async" [baseLink]="baseLink" [isLoading]="isLoading$ | async" [items]="summaries$ | async" (deleteClicked)="onDelete($event)"></app-component-summary-list>

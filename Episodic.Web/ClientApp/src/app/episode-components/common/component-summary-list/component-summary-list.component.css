@@ -1,0 +1,25 @@
+.component-summary-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.loading-message {
+    margin-bottom: 5px;
+    text-align: center;
+}
+.component-summary {
+    flex-basis: 25%;
+}
+
+@media only screen and (max-width: 768px) {
+    .component-summary {
+        flex-basis: 33.3%;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .component-summary {
+        flex-basis: 100%;
+    }
+}

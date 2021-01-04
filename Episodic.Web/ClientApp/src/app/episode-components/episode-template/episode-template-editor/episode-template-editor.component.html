@@ -1,0 +1,32 @@
+<ng-template #formTemplate  let-formComponent="form">
+    <form [formGroup]="formComponent">
+        <mat-form-field appearance="fill" >
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill" >
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+        <mat-form-field appearance="fill" >
+            <mat-label>Description Template</mat-label>
+            <textarea matInput formControlName="descriptionTemplate"></textarea>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Required Components</mat-label>
+            <mat-select formControlName="requiredComponents" multiple>
+              <mat-option *ngFor="let option of availableOptions" [value]="option.value">{{option.description}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+    </form>
+</ng-template>
+<app-component-editor-shell 
+    [isNew]="isNew$ | async" 
+    [id]="id$ | async" 
+    [formTemplate]="formTemplate"
+    [componentForm]=form 
+    (saveClicked)="save()"
+    (backClicked)="back()"
+    >
+</app-component-editor-shell>

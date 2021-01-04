@@ -1,0 +1,13 @@
+<h1>Episode</h1>
+<ng-container *ngIf="episode$ | async as episodeRequest">
+  <button class="episode-go-btn"  (click)="go()">Go</button>
+  <p *ngIf="episodeRequest.isLoading" class="episode-loading">Generating...</p>
+  <div *ngIf="episodeRequest.value as episode" class="episode-container">
+    <p>{{episode.description}}</p>
+    <div *ngIf="episode.macGuffin" class="macguffin-section">
+      <h3>{{episode.macGuffin.name}}</h3>
+      <p>{{episode.macGuffin.description}}</p>
+    </div>
+  </div>
+</ng-container>
+

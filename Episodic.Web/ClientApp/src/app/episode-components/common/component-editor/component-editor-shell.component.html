@@ -1,0 +1,8 @@
+<h3 *ngIf="isNew">Create</h3>
+<h3 *ngIf="!isNew">Edit</h3>
+<p>Id: {{id}}</p>
+    <ng-container *ngTemplateOutlet="formTemplate; context:{form:componentForm}" >
+    </ng-container>
+<button mat-button (click)="save()" [disabled]="componentForm.invalid">Save</button> 
+<button mat-button (click)="back()">Back</button> 
+

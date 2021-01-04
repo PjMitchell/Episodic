@@ -1,0 +1,20 @@
+<div class="summary-loading-section" *ngIf="isLoading$ | async">
+  <p class="loading-message" >Loading...</p>
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+<div class="component-summary-container" *ngIf="(isLoading$ | async) === false">
+    <mat-card class="component-summary" *ngFor="let item of items"  >
+        <mat-card-header>
+          <mat-card-title>{{item.name}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+           {{item.description}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <a mat-button [routerLink]="[baseLink +'/edit', item.id]">Edit</a>
+          <button mat-button (click)="deleteClicked.emit(item)">Delete</button>
+        </mat-card-actions>
+      </mat-card>
+</div>
