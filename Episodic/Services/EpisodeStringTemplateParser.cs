@@ -13,7 +13,7 @@ namespace Episodic
 
         public string ParseTemplate(string template, EpisodeComponentCollection components)
         {
-            string pattern = @"{{([aA-zZ]+)}}";
+            string pattern = @"{{([aA-zZ.]+)}}";
 
             return Regex.Replace(template, pattern, MatchEvaluator(components));
         }
@@ -26,6 +26,20 @@ namespace Episodic
             return match.Groups[1].Value switch
             {
                 "MacGuffin" => components.MacGuffinOrDefault()?.Name ?? NotFound,
+                string w when w.StartsWith("Faction") => ParseFaction(w, components),
+                _ => Error
+            };
+        }
+
+        private static string ParseFaction(string request, EpisodeComponentCollection components)
+        {
+            var faction = components.FactionOrDefault();
+            if (faction is null)
+                return NotFound;
+            return request.Split('.') switch
+            {
+                string[] args when args.Length == 1 && args[0] is "Faction" => faction.Name,
+                string[] args when args.Length == 2 && args[0] is "Faction" &&  args[1] is "Boss" => faction.Boss.Name,
                 _ => Error
             };
         }

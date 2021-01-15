@@ -17,7 +17,8 @@ namespace Episodic
     public enum EpisodeComponentType
     {
         Empty = 0,
-        MacGuffin = 1
+        MacGuffin = 1,
+        Faction = 2
     }
 
     public class EpisodeComponentCollection

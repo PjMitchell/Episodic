@@ -16,12 +16,15 @@ namespace Episodic
             services.AddScoped<IRandomPicker, RandomPicker>();
 
             services.AddTransient<IEpisodeComponentProvider, MacGuffinProvider>();
+            services.AddTransient<IEpisodeComponentProvider, FactionProvider>();
             services.AddTransient(s=> s.GetServices<IEpisodeComponentProvider>().ToArray());
             services.AddSingleton(new JsonStoreOption(storeBasePath));
             services.AddTransient(typeof(IReadStore<>), typeof(ReadJsonStore<>));
             services.AddSingleton(typeof(IWriteStore<>), typeof(WriteJsonStore<>));
             services.AddComponent<MacGuffin>();
             services.AddComponent<EpisodeTemplate>();
+            services.AddComponent<Faction>();
+
 
             return services;
         }

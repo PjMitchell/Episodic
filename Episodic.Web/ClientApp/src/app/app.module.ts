@@ -23,6 +23,10 @@ import { ComponentEditorShellComponent } from './episode-components/common/compo
 import { EpisodeTemplateManagerShellComponent } from './episode-components/episode-template/episode-template-manager-shell.component';
 import { EpisodeTemplateEditorComponent } from './episode-components/episode-template/episode-template-editor/episode-template-editor.component';
 import { EpisodeTemplateSummaryComponent } from './episode-components/episode-template/episode-template-summary/episode-template-summary.component';
+import { FactionManagerShellComponent } from './episode-components/faction/faction-manager-shell.component';
+import { FactionSummaryComponent } from './episode-components/faction/faction-summary/faction-summary.component';
+import { FactionEditorComponent } from './episode-components/faction/faction-editor/faction-editor.component';
+import { NPCInputComponent } from './episode-components/common/npc-input/npc-input.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +37,10 @@ import { EpisodeTemplateSummaryComponent } from './episode-components/episode-te
     MacGuffinManagerShellComponent,
     MacGuffinSummaryComponent,
     MacGuffinEditorComponent,
+    NPCInputComponent,
+    FactionManagerShellComponent,
+    FactionSummaryComponent,
+    FactionEditorComponent,
     EpisodeTemplateManagerShellComponent,
     EpisodeTemplateSummaryComponent,
     EpisodeTemplateEditorComponent,

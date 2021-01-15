@@ -1,6 +1,7 @@
 export interface Episode {
     description: string;
     macGuffin?: MacGuffin;
+    faction?: Faction;
 }
 
 export interface ComponentSummary {
@@ -20,4 +21,13 @@ export interface CommandResult {
 export interface EpisodeTemplate extends ComponentSummary {
     descriptionTemplate: string;
     requiredComponents: string[];
+}
+
+export interface Faction extends ComponentSummary {
+    boss: NPC;
+}
+
+export interface NPC {
+    name: string;
+    description: string;
 }

@@ -3,6 +3,9 @@ import { Route, Routes } from '@angular/router';
 import { EpisodeTemplateEditorComponent } from './episode-components/episode-template/episode-template-editor/episode-template-editor.component';
 import { EpisodeTemplateManagerShellComponent } from './episode-components/episode-template/episode-template-manager-shell.component';
 import { EpisodeTemplateSummaryComponent } from './episode-components/episode-template/episode-template-summary/episode-template-summary.component';
+import { FactionEditorComponent } from './episode-components/faction/faction-editor/faction-editor.component';
+import { FactionManagerShellComponent } from './episode-components/faction/faction-manager-shell.component';
+import { FactionSummaryComponent } from './episode-components/faction/faction-summary/faction-summary.component';
 import { MacGuffinEditorComponent } from './episode-components/macguffin/macguffin-editor/macguffin-editor.component';
 import { MacGuffinManagerShellComponent } from './episode-components/macguffin/macguffin-manager-shell.component';
 import { MacGuffinSummaryComponent } from './episode-components/macguffin/macguffin-summary/macguffin-summary.component';
@@ -20,7 +23,11 @@ export function buildRoutes(): Routes {
         buildManagerRoute('episodeTemplate',
           EpisodeTemplateManagerShellComponent,
           EpisodeTemplateSummaryComponent,
-          EpisodeTemplateEditorComponent)
+          EpisodeTemplateEditorComponent),
+        buildManagerRoute('faction',
+          FactionManagerShellComponent,
+          FactionSummaryComponent,
+          FactionEditorComponent)
       ];
 }
 

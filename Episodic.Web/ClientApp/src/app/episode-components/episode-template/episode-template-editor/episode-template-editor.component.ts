@@ -39,6 +39,7 @@ interface ComponentOption {
 
 function getAllComponentOptions(): ComponentOption[] {
   return [
-    { value: 'MacGuffin', description: 'MacGuffin'}
+    { value: 'MacGuffin', description: 'MacGuffin'},
+    { value: 'Faction', description: 'Faction'}
   ];
 }

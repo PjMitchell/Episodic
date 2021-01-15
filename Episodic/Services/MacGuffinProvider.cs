@@ -1,26 +1,15 @@
-﻿using System.Threading.Tasks;
-
-namespace Episodic
+﻿namespace Episodic
 {
-    public class MacGuffinProvider : IEpisodeComponentProvider
+    public class MacGuffinProvider : EpisodeComponentProviderBase<MacGuffin>
     {
-        public EpisodeComponentType Type => EpisodeComponentType.MacGuffin;
+        private static readonly MacGuffin defaultValue = new MacGuffin { Name = "Nice cup of tea", Description = "Mmm perhaps we could have some MacGuffins to select from" };
 
-        private readonly IReadStore<MacGuffin> store;
-        private readonly IRandomPicker randomPicker;
-
-        public MacGuffinProvider(IReadStore<MacGuffin> store, IRandomPicker randomPicker)
+        public MacGuffinProvider(IReadStore<MacGuffin> store, IRandomPicker randomPicker): base(store, randomPicker)
         {
-            this.store = store;
-            this.randomPicker = randomPicker;
+            
         }
+        
+        protected override MacGuffin GetDefault() => defaultValue;
+    }
 
-        public async Task<IEpisodeComponent> GetComponent()
-        {
-            var available = await store.Get();
-            if (available.Length == 0)
-                return new MacGuffin { Name = "Nice cup of tea", Description = "Mmm perhaps we could have some MacGuffins to select from" };
-            return randomPicker.Pick(available);
-        }
-    }    
 }

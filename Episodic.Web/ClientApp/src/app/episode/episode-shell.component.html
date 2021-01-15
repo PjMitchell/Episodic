@@ -8,6 +8,12 @@
       <h3>{{episode.macGuffin.name}}</h3>
       <p>{{episode.macGuffin.description}}</p>
     </div>
+    <div *ngIf="episode.faction" class="faction-section">
+      <h3>{{episode.faction.name}}</h3>
+      <p>{{episode.faction.description}}</p>
+      <h4>Boss - {{episode.faction.boss.name}}</h4>
+      <p>{{episode.faction.boss.description}}</p>
+    </div>
   </div>
 </ng-container>
 

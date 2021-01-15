@@ -5,9 +5,9 @@ namespace Episodic.Web.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class MacGuffinController : BaseComponentController<MacGuffin>
+    public class FactionController : BaseComponentController<Faction>
     {
-        public MacGuffinController(IMediator mediator) : base(mediator)
+        public FactionController(IMediator mediator) : base(mediator)
         {
         }
     }
