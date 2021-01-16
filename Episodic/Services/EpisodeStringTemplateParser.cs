@@ -26,6 +26,8 @@ namespace Episodic
             return match.Groups[1].Value switch
             {
                 "MacGuffin" => components.MacGuffinOrDefault()?.Name ?? NotFound,
+                "Environment" => components.EnvironmentOrDefault()?.Name ?? NotFound,
+                "Location" => components.LocationOrDefault()?.Name ?? NotFound,
                 string w when w.StartsWith("Faction") => ParseFaction(w, components),
                 _ => Error
             };

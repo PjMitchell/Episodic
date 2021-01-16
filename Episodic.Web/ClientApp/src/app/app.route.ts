@@ -1,11 +1,17 @@
 import { Type } from '@angular/core';
 import { Route, Routes } from '@angular/router';
+import { EnvironmentEditorComponent } from './episode-components/environment/environment-editor/environment-editor.component';
+import { EnvironmentManagerShellComponent } from './episode-components/environment/environment-manager-shell.component';
+import { EnvironmentSummaryComponent } from './episode-components/environment/environment-summary/environment-summary.component';
 import { EpisodeTemplateEditorComponent } from './episode-components/episode-template/episode-template-editor/episode-template-editor.component';
 import { EpisodeTemplateManagerShellComponent } from './episode-components/episode-template/episode-template-manager-shell.component';
 import { EpisodeTemplateSummaryComponent } from './episode-components/episode-template/episode-template-summary/episode-template-summary.component';
 import { FactionEditorComponent } from './episode-components/faction/faction-editor/faction-editor.component';
 import { FactionManagerShellComponent } from './episode-components/faction/faction-manager-shell.component';
 import { FactionSummaryComponent } from './episode-components/faction/faction-summary/faction-summary.component';
+import { LocationEditorComponent } from './episode-components/location/location-editor/location-editor.component';
+import { LocationManagerShellComponent } from './episode-components/location/location-manager-shell.component';
+import { LocationSummaryComponent } from './episode-components/location/location-summary/location-summary.component';
 import { MacGuffinEditorComponent } from './episode-components/macguffin/macguffin-editor/macguffin-editor.component';
 import { MacGuffinManagerShellComponent } from './episode-components/macguffin/macguffin-manager-shell.component';
 import { MacGuffinSummaryComponent } from './episode-components/macguffin/macguffin-summary/macguffin-summary.component';
@@ -27,7 +33,15 @@ export function buildRoutes(): Routes {
         buildManagerRoute('faction',
           FactionManagerShellComponent,
           FactionSummaryComponent,
-          FactionEditorComponent)
+          FactionEditorComponent),
+        buildManagerRoute('environment',
+          EnvironmentManagerShellComponent,
+          EnvironmentSummaryComponent,
+          EnvironmentEditorComponent),
+        buildManagerRoute('location',
+          LocationManagerShellComponent,
+          LocationSummaryComponent,
+          LocationEditorComponent)
       ];
 }
 

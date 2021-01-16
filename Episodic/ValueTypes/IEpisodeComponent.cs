@@ -18,7 +18,9 @@ namespace Episodic
     {
         Empty = 0,
         MacGuffin = 1,
-        Faction = 2
+        Faction = 2,
+        Environment = 3,
+        Location = 4
     }
 
     public class EpisodeComponentCollection

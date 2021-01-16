@@ -17,6 +17,9 @@ namespace Episodic
 
             services.AddTransient<IEpisodeComponentProvider, MacGuffinProvider>();
             services.AddTransient<IEpisodeComponentProvider, FactionProvider>();
+            services.AddTransient<IEpisodeComponentProvider, EnvironmentProvider>();
+            services.AddTransient<IEpisodeComponentProvider, LocationProvider>();
+
             services.AddTransient(s=> s.GetServices<IEpisodeComponentProvider>().ToArray());
             services.AddSingleton(new JsonStoreOption(storeBasePath));
             services.AddTransient(typeof(IReadStore<>), typeof(ReadJsonStore<>));
@@ -24,6 +27,8 @@ namespace Episodic
             services.AddComponent<MacGuffin>();
             services.AddComponent<EpisodeTemplate>();
             services.AddComponent<Faction>();
+            services.AddComponent<Location>();
+            services.AddComponent<Environment>();
 
 
             return services;

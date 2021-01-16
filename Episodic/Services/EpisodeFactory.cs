@@ -15,13 +15,13 @@
 
         public Episode Build(EpisodeTemplate template, EpisodeComponentCollection episodeComponents)
         {
-            var macGuffin = episodeComponents.GetComponent(EpisodeComponentType.MacGuffin) as MacGuffin;
-            var faction = episodeComponents.GetComponent(EpisodeComponentType.Faction) as Faction;
             return new Episode 
             { 
                 Description = episodeStringTemplateParser.ParseTemplate(template.DescriptionTemplate, episodeComponents), 
-                MacGuffin = macGuffin,
-                Faction = faction
+                MacGuffin = episodeComponents.MacGuffinOrDefault(),
+                Faction = episodeComponents.FactionOrDefault(),
+                Location = episodeComponents.LocationOrDefault(),
+                Environment = episodeComponents.EnvironmentOrDefault()
             };
         }
     }

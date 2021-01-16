@@ -27,6 +27,12 @@ import { FactionManagerShellComponent } from './episode-components/faction/facti
 import { FactionSummaryComponent } from './episode-components/faction/faction-summary/faction-summary.component';
 import { FactionEditorComponent } from './episode-components/faction/faction-editor/faction-editor.component';
 import { NPCInputComponent } from './episode-components/common/npc-input/npc-input.component';
+import { EnvironmentManagerShellComponent } from './episode-components/environment/environment-manager-shell.component';
+import { EnvironmentSummaryComponent } from './episode-components/environment/environment-summary/environment-summary.component';
+import { EnvironmentEditorComponent } from './episode-components/environment/environment-editor/environment-editor.component';
+import { LocationManagerShellComponent } from './episode-components/location/location-manager-shell.component';
+import { LocationSummaryComponent } from './episode-components/location/location-summary/location-summary.component';
+import { LocationEditorComponent } from './episode-components/location/location-editor/location-editor.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +47,12 @@ import { NPCInputComponent } from './episode-components/common/npc-input/npc-inp
     FactionManagerShellComponent,
     FactionSummaryComponent,
     FactionEditorComponent,
+    EnvironmentManagerShellComponent,
+    EnvironmentSummaryComponent,
+    EnvironmentEditorComponent,
+    LocationManagerShellComponent,
+    LocationSummaryComponent,
+    LocationEditorComponent,
     EpisodeTemplateManagerShellComponent,
     EpisodeTemplateSummaryComponent,
     EpisodeTemplateEditorComponent,

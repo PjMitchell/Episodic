@@ -2,6 +2,8 @@ export interface Episode {
     description: string;
     macGuffin?: MacGuffin;
     faction?: Faction;
+    location?: Location;
+    environment?: Environment;
 }
 
 export interface ComponentSummary {
@@ -12,6 +14,14 @@ export interface ComponentSummary {
 
 // tslint:disable-next-line: no-empty-interface
 export interface MacGuffin extends ComponentSummary {
+}
+
+// tslint:disable-next-line: no-empty-interface
+export interface Location extends ComponentSummary {
+}
+
+// tslint:disable-next-line: no-empty-interface
+export interface Environment extends ComponentSummary {
 }
 
 export interface CommandResult {

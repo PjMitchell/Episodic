@@ -1,0 +1,22 @@
+<ng-template #formTemplate  let-formComponent="form">
+    <form [formGroup]="formComponent">
+        <mat-form-field appearance="fill" >
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill" >
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+    </form>
+</ng-template>
+<app-component-editor-shell 
+    [isNew]="isNew$ | async" 
+    [id]="id$ | async" 
+    [formTemplate]="formTemplate"
+    [componentForm]=form 
+    (saveClicked)="save()"
+    (backClicked)="back()"
+    >
+</app-component-editor-shell>

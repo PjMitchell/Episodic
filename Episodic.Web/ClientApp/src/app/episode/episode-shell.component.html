@@ -8,6 +8,14 @@
       <h3>{{episode.macGuffin.name}}</h3>
       <p>{{episode.macGuffin.description}}</p>
     </div>
+    <div *ngIf="episode.location" class="location-section">
+      <h3>{{episode.location.name}}</h3>
+      <p>{{episode.location.description}}</p>
+    </div>
+    <div *ngIf="episode.environment" class="environment-section">
+      <h3>{{episode.environment.name}}</h3>
+      <p>{{episode.environment.description}}</p>
+    </div>
     <div *ngIf="episode.faction" class="faction-section">
       <h3>{{episode.faction.name}}</h3>
       <p>{{episode.faction.description}}</p>

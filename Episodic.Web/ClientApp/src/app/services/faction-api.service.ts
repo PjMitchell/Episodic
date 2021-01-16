@@ -11,3 +11,7 @@ export class FactionApiService extends ComponentApiService<Faction> {
         super(http, baseUrl, 'api/Faction');
     }
 }
+
+
+
+
