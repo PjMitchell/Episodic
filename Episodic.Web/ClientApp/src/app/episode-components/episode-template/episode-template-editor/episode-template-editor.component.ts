@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EpisodeTemplate } from 'src/app/models/episode';
+import { EpisodeStageTemplate, EpisodeTemplate } from 'src/app/models/episode';
 import { EpisodeTemplateApiService } from 'src/app/services/episode-template-api.service';
 import { ComponentEditorBase } from '../../common/component-editor/component-editor.base';
 import { EpisodeTemplateComponentStore } from '../episode-template-component.store';
@@ -13,11 +13,41 @@ import { EpisodeTemplateComponentStore } from '../episode-template-component.sto
     availableOptions = getAllComponentOptions();
     constructor(
       store: EpisodeTemplateComponentStore,
-      formBuilder: FormBuilder,
+      private formBuilder: FormBuilder,
       route: ActivatedRoute,
       apiService: EpisodeTemplateApiService,
       router: Router) {
       super('/episodeTemplate', episodeTemplateFormBuilder(formBuilder), store, apiService, route, router);
+    }
+
+    add() {
+      const controlArray = this.form.controls.stages as FormArray;
+      const newStage = this.formBuilder.group({
+        name: this.formBuilder.control('', Validators.required),
+        descriptionTemplate: this.formBuilder.control('', Validators.required)
+      });
+      controlArray.push(newStage);
+    }
+
+    remove(i: number) {
+      const controlArray = this.form.controls.stages as FormArray;
+      controlArray.removeAt(i);
+    }
+
+    setFormValue(v: EpisodeTemplate) {
+      const controlArray = this.form.controls.stages as FormArray;
+      controlArray.clear();
+      v.stages.forEach((stage, i) => {
+        controlArray.setControl(i, this.buildStageControl(stage));
+      });
+      super.setFormValue(v);
+    }
+
+    buildStageControl(v: EpisodeStageTemplate) {
+      return this.formBuilder.group({
+        name: this.formBuilder.control(v.name, Validators.required),
+        descriptionTemplate: this.formBuilder.control(v.description, Validators.required)
+      });
     }
 }
 
@@ -28,7 +58,7 @@ function episodeTemplateFormBuilder(formBuilder: FormBuilder) {
     description: formBuilder.control('', Validators.required),
     descriptionTemplate: formBuilder.control('', Validators.required),
     requiredComponents: formBuilder.control([]),
-
+    stages: formBuilder.array([])
   });
 }
 

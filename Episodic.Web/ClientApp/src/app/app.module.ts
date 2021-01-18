@@ -17,7 +17,7 @@ import { ComponentSummaryListComponent } from './episode-components/common/compo
 import { MacGuffinSummaryComponent } from './episode-components/macguffin/macguffin-summary/macguffin-summary.component';
 import { buildRoutes } from './app.route';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatSelectModule, MatTooltipModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatSelectModule, MatTabsModule, MatTooltipModule } from '@angular/material';
 import { MacGuffinEditorComponent } from './episode-components/macguffin/macguffin-editor/macguffin-editor.component';
 import { ComponentEditorShellComponent } from './episode-components/common/component-editor/component-editor-shell.component';
 import { EpisodeTemplateManagerShellComponent } from './episode-components/episode-template/episode-template-manager-shell.component';
@@ -33,6 +33,7 @@ import { EnvironmentEditorComponent } from './episode-components/environment/env
 import { LocationManagerShellComponent } from './episode-components/location/location-manager-shell.component';
 import { LocationSummaryComponent } from './episode-components/location/location-summary/location-summary.component';
 import { LocationEditorComponent } from './episode-components/location/location-editor/location-editor.component';
+import { EpisodeStageComponent } from './episode/episode-stage/episode-stage.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { LocationEditorComponent } from './episode-components/location/location-
     NavMenuComponent,
     HomeComponent,
     EpisodeShellComponent,
+    EpisodeStageComponent,
     MacGuffinManagerShellComponent,
     MacGuffinSummaryComponent,
     MacGuffinEditorComponent,
@@ -71,6 +73,7 @@ import { LocationEditorComponent } from './episode-components/location/location-
     MatInputModule,
     MatProgressBarModule,
     MatSelectModule,
+    MatTabsModule,
     StoreModule.forRoot<AdventureState>(buildReducer()),
     EffectsModule.forRoot([AppEffects]),
     RouterModule.forRoot(buildRoutes()),

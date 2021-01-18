@@ -1,9 +1,15 @@
 export interface Episode {
     description: string;
+    stages: EpisodeStage[];
     macGuffin?: MacGuffin;
     faction?: Faction;
     location?: Location;
     environment?: Environment;
+}
+
+export interface EpisodeStage {
+    name: string;
+    description: string;
 }
 
 export interface ComponentSummary {
@@ -31,6 +37,12 @@ export interface CommandResult {
 export interface EpisodeTemplate extends ComponentSummary {
     descriptionTemplate: string;
     requiredComponents: string[];
+    stages: EpisodeStageTemplate[];
+}
+
+export interface EpisodeStageTemplate {
+    name: string;
+    description: string;
 }
 
 export interface Faction extends ComponentSummary {

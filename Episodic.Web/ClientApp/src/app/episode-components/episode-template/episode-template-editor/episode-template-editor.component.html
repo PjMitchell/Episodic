@@ -19,6 +19,21 @@
               <mat-option *ngFor="let option of availableOptions" [value]="option.value">{{option.description}}</mat-option>
             </mat-select>
           </mat-form-field>
+          
+            <button mat-button (click)="add()">Add</button> 
+            <div *ngFor="let stageForm of formComponent.controls.stages.controls;let stageIndex = index" [formGroup]="stageForm">
+                <h2>Stage {{stageIndex+1}}</h2>
+                <mat-form-field appearance="fill" >
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name">
+                </mat-form-field>
+                <mat-form-field appearance="fill" >
+                    <mat-label>Description Template</mat-label>
+                    <textarea matInput formControlName="descriptionTemplate"></textarea>
+                </mat-form-field>
+                <button mat-button (click)="remove(stageIndex)">Remove</button> 
+           
+            </div>
     </form>
 </ng-template>
 <app-component-editor-shell 

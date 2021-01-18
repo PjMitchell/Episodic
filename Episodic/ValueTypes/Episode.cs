@@ -1,4 +1,6 @@
-﻿namespace Episodic
+﻿using System;
+
+namespace Episodic
 {
     public class Episode
     {
@@ -8,5 +10,6 @@
         public Location? Location { get; init; }
         public Environment? Environment { get; init; }
 
+        public EpisodeStage[] Stages { get; init; } = Array.Empty<EpisodeStage>();
     }
 }

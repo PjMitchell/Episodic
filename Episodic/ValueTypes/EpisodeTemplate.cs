@@ -9,5 +9,6 @@ namespace Episodic
         public string Description { get; init; } = string.Empty;
         public string DescriptionTemplate { get; init; } = string.Empty;
         public EpisodeComponentType[] RequiredComponents { get; init; } = Array.Empty<EpisodeComponentType>();
+        public EpisodeStageTemplate[] Stages { get; init; } = Array.Empty<EpisodeStageTemplate>();
     }
 }

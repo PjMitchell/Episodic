@@ -40,7 +40,11 @@ export class ComponentEditorBase<T> implements OnInit, OnDestroy {
 
       this.subscriptions.add(this.store.select(s => s.openComponent.value).pipe(
         filter(v => v ? true : false)
-      ).subscribe(v => this.form.setValue(v)));
+      ).subscribe(v => this.setFormValue(v)));
+    }
+
+    setFormValue(v: T) {
+      this.form.setValue(v);
     }
 
     save() {

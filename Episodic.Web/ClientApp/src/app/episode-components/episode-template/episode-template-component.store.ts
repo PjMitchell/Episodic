@@ -15,7 +15,8 @@ export class EpisodeTemplateComponentStore extends EpisodeComponentStore<Episode
             name: '',
             description: '',
             descriptionTemplate: '',
-            requiredComponents: []
+            requiredComponents: [],
+            stages: []
         };
     }
 }

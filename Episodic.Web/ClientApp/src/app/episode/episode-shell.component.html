@@ -4,6 +4,7 @@
   <p *ngIf="episodeRequest.isLoading" class="episode-loading">Generating...</p>
   <div *ngIf="episodeRequest.value as episode" class="episode-container">
     <p>{{episode.description}}</p>
+    <app-episode-stage [episodeStages]="episodeRequest.value.stages"></app-episode-stage>
     <div *ngIf="episode.macGuffin" class="macguffin-section">
       <h3>{{episode.macGuffin.name}}</h3>
       <p>{{episode.macGuffin.description}}</p>
