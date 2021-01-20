@@ -3,13 +3,13 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Faction } from 'src/app/models/episode';
 import { FactionApiService } from 'src/app/services/faction-api.service';
-import { ComponentEditorBase } from '../../common/component-editor/component-editor.base';
+import { ComponentEditorBaseDirective } from '../../common/component-editor/component-editor.base';
 import { FactionComponentStore } from '../faction-component.store';
 
 @Component({
     templateUrl: './faction-editor.component.html',
   })
-  export class FactionEditorComponent extends ComponentEditorBase<Faction> {
+  export class FactionEditorComponent extends ComponentEditorBaseDirective<Faction> {
     constructor(
       store: FactionComponentStore,
       formBuilder: FormBuilder,

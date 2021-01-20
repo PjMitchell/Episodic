@@ -1,10 +1,11 @@
-import { OnInit } from '@angular/core';
+import { OnInit, Directive } from '@angular/core';
 import { Observable, SubscriptionLike } from 'rxjs';
 import { ComponentSummary } from 'src/app/models/episode';
 import { ComponentApiService } from 'src/app/services/component-api.service';
 import { EpisodeComponentStore } from '../../episode-component.store';
 
-export class BaseSummaryComponent<T> implements OnInit {
+@Directive()
+export class BaseSummaryComponentDirective<T> implements OnInit {
     summaries$: Observable<ComponentSummary[]>;
     isLoading$: Observable<boolean>;
 

@@ -3,13 +3,13 @@ import { FormArray, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EpisodeStageTemplate, EpisodeTemplate } from 'src/app/models/episode';
 import { EpisodeTemplateApiService } from 'src/app/services/episode-template-api.service';
-import { ComponentEditorBase } from '../../common/component-editor/component-editor.base';
+import { ComponentEditorBaseDirective } from '../../common/component-editor/component-editor.base';
 import { EpisodeTemplateComponentStore } from '../episode-template-component.store';
 
 @Component({
     templateUrl: './episode-template-editor.component.html',
   })
-  export class EpisodeTemplateEditorComponent extends ComponentEditorBase<EpisodeTemplate> {
+  export class EpisodeTemplateEditorComponent extends ComponentEditorBaseDirective<EpisodeTemplate> {
     availableOptions = getAllComponentOptions();
     constructor(
       store: EpisodeTemplateComponentStore,

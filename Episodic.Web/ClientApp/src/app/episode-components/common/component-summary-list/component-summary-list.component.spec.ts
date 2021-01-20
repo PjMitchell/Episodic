@@ -1,6 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ComponentSummaryListComponent } from './component-summary-list.component';
-import { MatButtonModule, MatCardModule, MatProgressBarModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { RouterTestingModule } from '@angular/router/testing';
 import { By } from '@angular/platform-browser';
 
@@ -8,7 +10,7 @@ describe('ComponentSummaryListComponent', () => {
   let component: ComponentSummaryListComponent;
   let fixture: ComponentFixture<ComponentSummaryListComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ComponentSummaryListComponent ],
       imports: [

@@ -3,13 +3,13 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Environment } from 'src/app/models/episode';
 import { EnvironmentApiService } from 'src/app/services/environment-api.service';
-import { ComponentEditorBase } from '../../common/component-editor/component-editor.base';
+import { ComponentEditorBaseDirective } from '../../common/component-editor/component-editor.base';
 import { EnvironmentComponentStore } from '../environment-component.store';
 
 @Component({
     templateUrl: './environment-editor.component.html',
   })
-  export class EnvironmentEditorComponent extends ComponentEditorBase<Environment> {
+  export class EnvironmentEditorComponent extends ComponentEditorBaseDirective<Environment> {
     constructor(
       store: EnvironmentComponentStore,
       formBuilder: FormBuilder,

@@ -17,7 +17,14 @@ import { ComponentSummaryListComponent } from './episode-components/common/compo
 import { MacGuffinSummaryComponent } from './episode-components/macguffin/macguffin-summary/macguffin-summary.component';
 import { buildRoutes } from './app.route';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatProgressBarModule, MatSelectModule, MatTabsModule, MatTooltipModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { MacGuffinEditorComponent } from './episode-components/macguffin/macguffin-editor/macguffin-editor.component';
 import { ComponentEditorShellComponent } from './episode-components/common/component-editor/component-editor-shell.component';
 import { EpisodeTemplateManagerShellComponent } from './episode-components/episode-template/episode-template-manager-shell.component';
@@ -76,7 +83,7 @@ import { EpisodeStageComponent } from './episode/episode-stage/episode-stage.com
     MatTabsModule,
     StoreModule.forRoot<AdventureState>(buildReducer()),
     EffectsModule.forRoot([AppEffects]),
-    RouterModule.forRoot(buildRoutes()),
+    RouterModule.forRoot(buildRoutes(), { relativeLinkResolution: 'legacy' }),
     BrowserAnimationsModule
   ],
   providers: [],

@@ -3,13 +3,13 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MacGuffin } from 'src/app/models/episode';
 import { MacGuffinApiService } from 'src/app/services/macguffin-api.service';
-import { ComponentEditorBase } from '../../common/component-editor/component-editor.base';
+import { ComponentEditorBaseDirective } from '../../common/component-editor/component-editor.base';
 import { MacGuffinComponentStore } from '../macguffin-component.store';
 
 @Component({
     templateUrl: './macguffin-editor.component.html',
   })
-  export class MacGuffinEditorComponent extends ComponentEditorBase<MacGuffin> {
+  export class MacGuffinEditorComponent extends ComponentEditorBaseDirective<MacGuffin> {
     constructor(
       store: MacGuffinComponentStore,
       formBuilder: FormBuilder,

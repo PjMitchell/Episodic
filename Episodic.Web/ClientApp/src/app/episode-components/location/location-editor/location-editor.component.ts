@@ -3,13 +3,13 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from 'src/app/models/episode';
 import { LocationApiService } from 'src/app/services/location-api.service';
-import { ComponentEditorBase } from '../../common/component-editor/component-editor.base';
+import { ComponentEditorBaseDirective } from '../../common/component-editor/component-editor.base';
 import { LocationComponentStore } from '../location-component.store';
 
 @Component({
     templateUrl: './location-editor.component.html',
   })
-  export class LocationEditorComponent extends ComponentEditorBase<Location> {
+  export class LocationEditorComponent extends ComponentEditorBaseDirective<Location> {
     constructor(
       store: LocationComponentStore,
       formBuilder: FormBuilder,

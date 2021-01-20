@@ -1,4 +1,4 @@
-import { OnInit, OnDestroy } from '@angular/core';
+import { OnInit, OnDestroy, Directive } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Observable, Subscription, SubscriptionLike } from 'rxjs';
@@ -8,7 +8,8 @@ import { ComponentApiService } from 'src/app/services/component-api.service';
 import { EpisodeComponentStore } from '../../episode-component.store';
 
 
-export class ComponentEditorBase<T> implements OnInit, OnDestroy {
+@Directive()
+export class ComponentEditorBaseDirective<T> implements OnInit, OnDestroy {
     id$: Observable<string>;
     isNew$: Observable<boolean>;
     isLoading$: Observable<boolean>;

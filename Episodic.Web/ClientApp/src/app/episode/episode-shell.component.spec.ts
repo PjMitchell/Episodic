@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { EpisodeShellComponent } from './episode-shell.component';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { AdventureState } from '../store/app.store';
@@ -15,7 +15,7 @@ describe('EpisodeShellComponent', () => {
   let store: MockStore<AdventureState>;
   let actions = new Array<Action>();
   let actionSubscription: SubscriptionLike;
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     initialState = {
         currentEpisode: returnedRequest({
             description: 'description',
@@ -23,7 +23,8 @@ describe('EpisodeShellComponent', () => {
                 id: '1234',
                 name: 'The one ring',
                 description: 'The one ring'
-            }
+            },
+            stages: []
         })
     };
     TestBed.configureTestingModule({
@@ -38,7 +39,7 @@ describe('EpisodeShellComponent', () => {
   beforeEach(() => {
     actions = [];
     fixture = TestBed.createComponent(EpisodeShellComponent);
-    store = TestBed.get<MockStore>(MockStore);
+    store = TestBed.inject<MockStore<AdventureState>>(MockStore);
     actionSubscription = store.scannedActions$.subscribe(r => actions.push(r));
     component = fixture.componentInstance;
     fixture.detectChanges();
