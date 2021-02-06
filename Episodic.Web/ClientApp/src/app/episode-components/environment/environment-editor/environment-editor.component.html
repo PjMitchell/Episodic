@@ -1,13 +1,13 @@
 <ng-template #formTemplate  let-formComponent="form">
     <form [formGroup]="formComponent">
-        <mat-form-field appearance="fill" >
+        <mat-form-field appearance="fill">
             <mat-label>Name</mat-label>
             <input matInput formControlName="name">
         </mat-form-field>
         <br>
-        <mat-form-field appearance="fill" >
+        <mat-form-field appearance="fill" class="app-full-width-input" >
             <mat-label>Description</mat-label>
-            <textarea matInput formControlName="description"></textarea>
+            <app-enhanced-text-editor formControlName="description"></app-enhanced-text-editor>                       
         </mat-form-field>
     </form>
 </ng-template>

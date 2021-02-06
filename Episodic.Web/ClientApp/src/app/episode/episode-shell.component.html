@@ -1,27 +1,27 @@
 <h1>Episode</h1>
 <ng-container *ngIf="episode$ | async as episodeRequest">
-  <button class="episode-go-btn"  (click)="go()">Go</button>
+  <button class="episode-go-btn" (click)="go()">Go</button>
   <p *ngIf="episodeRequest.isLoading" class="episode-loading">Generating...</p>
   <div *ngIf="episodeRequest.value as episode" class="episode-container">
-    <p>{{episode.description}}</p>
+    <app-enhanced-text [value]="episode.description"></app-enhanced-text>
     <app-episode-stage [episodeStages]="episodeRequest.value.stages"></app-episode-stage>
     <div *ngIf="episode.macGuffin" class="macguffin-section">
-      <h3>{{episode.macGuffin.name}}</h3>
-      <p>{{episode.macGuffin.description}}</p>
+      <h3>{{episode.macGuffin.name}}</h3>      
+      <app-enhanced-text [value]="episode.macGuffin.description"></app-enhanced-text>
     </div>
     <div *ngIf="episode.location" class="location-section">
       <h3>{{episode.location.name}}</h3>
-      <p>{{episode.location.description}}</p>
+      <app-enhanced-text [value]="episode.location.description"></app-enhanced-text>
     </div>
     <div *ngIf="episode.environment" class="environment-section">
-      <h3>{{episode.environment.name}}</h3>
-      <p>{{episode.environment.description}}</p>
+      <h3>{{episode.environment.name}}</h3>      
+      <app-enhanced-text [value]="episode.environment.description"></app-enhanced-text>
     </div>
     <div *ngIf="episode.faction" class="faction-section">
-      <h3>{{episode.faction.name}}</h3>
-      <p>{{episode.faction.description}}</p>
+      <h3>{{episode.faction.name}}</h3>      
+      <app-enhanced-text [value]="episode.faction.description"></app-enhanced-text>
       <h4>Boss - {{episode.faction.boss.name}}</h4>
-      <p>{{episode.faction.boss.description}}</p>
+      <app-enhanced-text [value]="episode.faction.boss.description"></app-enhanced-text>
     </div>
   </div>
 </ng-container>

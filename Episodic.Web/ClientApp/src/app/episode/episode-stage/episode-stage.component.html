@@ -1,3 +1,5 @@
 <mat-tab-group>
-    <mat-tab *ngFor="let stage of episodeStages" [label]="stage.name">{{stage.description}}</mat-tab>
+    <mat-tab *ngFor="let stage of episodeStages" [label]="stage.name">        
+      <app-enhanced-text [value]="stage.description"></app-enhanced-text>
+    </mat-tab>
 </mat-tab-group>

@@ -5,13 +5,13 @@
             <input matInput formControlName="name">
         </mat-form-field>
         <br>
-        <mat-form-field appearance="fill" >
+        <mat-form-field appearance="fill" class="app-full-width-input">
             <mat-label>Description</mat-label>
             <textarea matInput formControlName="description"></textarea>
         </mat-form-field>
-        <mat-form-field appearance="fill" >
+        <mat-form-field appearance="fill" class="app-full-width-input">
             <mat-label>Description Template</mat-label>
-            <textarea matInput formControlName="descriptionTemplate"></textarea>
+            <app-enhanced-text-editor formControlName="descriptionTemplate"></app-enhanced-text-editor>       
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Required Components</mat-label>
@@ -27,9 +27,9 @@
                     <mat-label>Name</mat-label>
                     <input matInput formControlName="name">
                 </mat-form-field>
-                <mat-form-field appearance="fill" >
+                <mat-form-field appearance="fill" class="app-full-width-input">
                     <mat-label>Description Template</mat-label>
-                    <textarea matInput formControlName="descriptionTemplate"></textarea>
+                    <app-enhanced-text-editor formControlName="descriptionTemplate"></app-enhanced-text-editor>       
                 </mat-form-field>
                 <button mat-button (click)="remove(stageIndex)">Remove</button> 
            

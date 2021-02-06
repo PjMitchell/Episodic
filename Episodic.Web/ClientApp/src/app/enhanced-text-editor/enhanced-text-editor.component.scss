@@ -1,0 +1,15 @@
+.enhanced-text-editor {
+    .ql-toolbar {
+        border:none;
+        border-bottom: 2px solid;
+    }   
+    .ql-container {
+        border:none;
+    }
+}
+.enhanced-text-editor-inactive {
+    .ql-toolbar {
+        display:none;
+    }
+}
+

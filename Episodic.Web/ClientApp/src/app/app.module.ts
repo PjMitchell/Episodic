@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
+import { QuillModule } from 'ngx-quill';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
@@ -41,6 +41,8 @@ import { LocationManagerShellComponent } from './episode-components/location/loc
 import { LocationSummaryComponent } from './episode-components/location/location-summary/location-summary.component';
 import { LocationEditorComponent } from './episode-components/location/location-editor/location-editor.component';
 import { EpisodeStageComponent } from './episode/episode-stage/episode-stage.component';
+import { EnhancedTextEditorComponent } from './enhanced-text-editor/enhanced-text-editor.component';
+import { EnhancedTextComponent } from './enhanced-text/enhanced-text.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +69,8 @@ import { EpisodeStageComponent } from './episode/episode-stage/episode-stage.com
     EpisodeTemplateEditorComponent,
     ComponentSummaryListComponent,
     ComponentEditorShellComponent,
+    EnhancedTextEditorComponent,
+    EnhancedTextComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -84,7 +88,8 @@ import { EpisodeStageComponent } from './episode/episode-stage/episode-stage.com
     StoreModule.forRoot<AdventureState>(buildReducer()),
     EffectsModule.forRoot([AppEffects]),
     RouterModule.forRoot(buildRoutes(), { relativeLinkResolution: 'legacy' }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    QuillModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
