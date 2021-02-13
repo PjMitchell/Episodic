@@ -43,7 +43,8 @@ import { LocationEditorComponent } from './episode-components/location/location-
 import { EpisodeStageComponent } from './episode/episode-stage/episode-stage.component';
 import { EnhancedTextEditorComponent } from './enhanced-text-editor/enhanced-text-editor.component';
 import { EnhancedTextComponent } from './enhanced-text/enhanced-text.component';
-
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,6 +86,8 @@ import { EnhancedTextComponent } from './enhanced-text/enhanced-text.component';
     MatProgressBarModule,
     MatSelectModule,
     MatTabsModule,
+    MatExpansionModule,
+    MatIconModule,
     StoreModule.forRoot<AdventureState>(buildReducer()),
     EffectsModule.forRoot([AppEffects]),
     RouterModule.forRoot(buildRoutes(), { relativeLinkResolution: 'legacy' }),

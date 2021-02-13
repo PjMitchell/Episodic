@@ -20,9 +20,21 @@
             </mat-select>
           </mat-form-field>
           
-            <button mat-button (click)="add()">Add</button> 
-            <div *ngFor="let stageForm of formComponent.controls.stages.controls;let stageIndex = index" [formGroup]="stageForm">
-                <h2>Stage {{stageIndex+1}}</h2>
+        <h3>Stages</h3>
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let stageForm of formComponent.controls.stages.controls;let stageIndex = index"
+             [formGroup]="stageForm"
+             [expanded]="openStage ===stageIndex" (opened)="setOpenStage(stageIndex)"
+             hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Stage {{stageIndex+1}}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                    {{stageForm.value.name}}
+                    <button mat-icon-button (click)="remove(stageIndex)"><mat-icon>delete</mat-icon></button>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
                 <mat-form-field appearance="fill" >
                     <mat-label>Name</mat-label>
                     <input matInput formControlName="name">
@@ -31,14 +43,16 @@
                     <mat-label>Description Template</mat-label>
                     <app-enhanced-text-editor formControlName="descriptionTemplate"></app-enhanced-text-editor>       
                 </mat-form-field>
-                <button mat-button (click)="remove(stageIndex)">Remove</button> 
-           
-            </div>
+                    
+            </mat-expansion-panel>
+        </mat-accordion>
+        <button mat-button (click)="add()">Add Stage</button> 
     </form>
 </ng-template>
 <app-component-editor-shell 
     [isNew]="isNew$ | async" 
     [id]="id$ | async" 
+    [isLoading]="isLoading$ | async"
     [formTemplate]="formTemplate"
     [componentForm]=form 
     (saveClicked)="save()"

@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
     @Input()
     id: string;
     @Input()
-    isNew: Observable<boolean>;
+    isNew: boolean;
     @Input()
     formTemplate: TemplateRef<ComponentEditorFormTemplate>;
     @Input()
@@ -19,6 +19,8 @@ import { Observable } from 'rxjs';
     saveClicked = new EventEmitter<void>();
     @Output()
     backClicked = new EventEmitter<void>();
+    @Input()
+    isLoading: boolean;
 
     constructor() {
     }

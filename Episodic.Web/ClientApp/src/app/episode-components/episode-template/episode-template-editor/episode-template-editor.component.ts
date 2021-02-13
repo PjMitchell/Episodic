@@ -8,9 +8,11 @@ import { EpisodeTemplateComponentStore } from '../episode-template-component.sto
 
 @Component({
     templateUrl: './episode-template-editor.component.html',
+    styleUrls: ['./episode-template-editor.component.scss']
   })
   export class EpisodeTemplateEditorComponent extends ComponentEditorBaseDirective<EpisodeTemplate> {
     availableOptions = getAllComponentOptions();
+    openStage = 0;
     constructor(
       store: EpisodeTemplateComponentStore,
       private formBuilder: FormBuilder,
@@ -27,11 +29,19 @@ import { EpisodeTemplateComponentStore } from '../episode-template-component.sto
         descriptionTemplate: this.formBuilder.control('', Validators.required)
       });
       controlArray.push(newStage);
+      this.setOpenStage(controlArray.length - 1);
     }
 
     remove(i: number) {
       const controlArray = this.form.controls.stages as FormArray;
       controlArray.removeAt(i);
+      if (i <= this.openStage) {
+        this.setOpenStage(this.openStage - 1);
+      }
+    }
+
+    setOpenStage(index: number) {
+      this.openStage = index;
     }
 
     setFormValue(v: EpisodeTemplate) {

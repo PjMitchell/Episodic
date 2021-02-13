@@ -13,7 +13,8 @@
 </ng-template>
 <app-component-editor-shell 
     [isNew]="isNew$ | async" 
-    [id]="id$ | async" 
+    [id]="id$ | async"     
+    [isLoading]="isLoading$ | async"
     [formTemplate]="formTemplate"
     [componentForm]=form 
     (saveClicked)="save()"

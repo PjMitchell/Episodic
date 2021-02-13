@@ -36,12 +36,10 @@ export class ComponentEditorBaseDirective<T> implements OnInit, OnDestroy {
         map(v => !v.has('id')),
         shareReplay(1)
       );
-
-      this.isLoading$ = this.store.select(s => s.openComponent.isLoading);
-
       this.subscriptions.add(this.store.select(s => s.openComponent.value).pipe(
         filter(v => v ? true : false)
       ).subscribe(v => this.setFormValue(v)));
+      this.isLoading$ = this.store.select(s => s.openComponent.isLoading);
     }
 
     setFormValue(v: T) {
