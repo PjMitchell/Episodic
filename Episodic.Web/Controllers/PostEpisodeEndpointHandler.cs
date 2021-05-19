@@ -1,27 +1,22 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using Microsoft.AspNetCore.Mvc;
+using Easy.Endpoints;
 
 namespace Episodic.Web.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class EpisodeController : ControllerBase
+    public class PostEpisodeEndpointHandler : IJsonResponseEndpointHandler<Episode>
     {
         private readonly IMediator mediator;
 
-        public EpisodeController(IMediator mediator)
+        public PostEpisodeEndpointHandler(IMediator mediator)
         {
             this.mediator = mediator;
         }
 
-        [HttpPost]
-        public Task<Episode> Get(CancellationToken cancellationToken)
+        public Task<Episode> HandleAsync(CancellationToken cancellationToken)
         {
             return mediator.Send(new RandomEpisodeQuery(), cancellationToken);
         }
     }
-
-
 }

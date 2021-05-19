@@ -6,7 +6,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Text.Json.Serialization;
+using Easy.Endpoints;
 using MediatR;
+using System.Text.Json;
+
 namespace episodic.web
 {
     public class Startup
@@ -27,6 +30,18 @@ namespace episodic.web
                 options.JsonSerializerOptions.IgnoreReadOnlyProperties = true;
                 options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
                 options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+            });
+            services.AddEasyEndpoints(o => {
+                o.WithRoutePattern("api/[endpoint]");
+                var jsonSerializerOptions = new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                    PropertyNameCaseInsensitive = true,
+                    IgnoreReadOnlyProperties = true,
+                    DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+                };
+                jsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                o.WithJsonSerializer(jsonSerializerOptions);
             });
             services.AddMediatR(typeof(Startup), typeof(EpisodicBootstrapper));
             // In production, the Angular files will be served from this directory
@@ -63,6 +78,7 @@ namespace episodic.web
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapEasyEndpoints();
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");

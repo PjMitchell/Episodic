@@ -13,8 +13,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Easy.Endpoints" Version="2.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.5" />
   </ItemGroup>
 
   <ItemGroup>

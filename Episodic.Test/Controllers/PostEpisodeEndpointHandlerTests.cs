@@ -7,15 +7,15 @@ using Xunit;
 
 namespace Episodic.Test.Controllers
 {
-    public class EpisodeControllerTests
+    public class PostEpisodeEndpointHandlerTests
     {
         private readonly Mock<IMediator> mediator;
-        private readonly EpisodeController target;
+        private readonly PostEpisodeEndpointHandler target;
 
-        public EpisodeControllerTests()
+        public PostEpisodeEndpointHandlerTests()
         {
             mediator = new Mock<IMediator>();
-            target = new EpisodeController(mediator.Object);
+            target = new PostEpisodeEndpointHandler(mediator.Object);
         }
 
         [Fact]
@@ -24,7 +24,7 @@ namespace Episodic.Test.Controllers
             var episode = new Episode { Description = "test" };
             mediator.Setup(s => s.Send(It.IsAny<RandomEpisodeQuery>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(episode);
-            var result = await target.Get(CancellationToken.None);
+            var result = await target.HandleAsync(CancellationToken.None);
             Assert.Equal(episode, result);
         }
 
